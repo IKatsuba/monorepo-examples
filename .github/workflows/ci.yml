@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: Pipeline
+    name: npm run build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -21,7 +21,7 @@ jobs:
     - run: npm ci
     - run: npm run build
   test:
-    name: Pipeline
+    name: npm run test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -31,7 +31,7 @@ jobs:
     - run: npm ci
     - run: npm test
   lint:
-    name: Pipeline
+    name: npm run lint
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -41,7 +41,7 @@ jobs:
     - run: npm ci
     - run: npm run lint
   e2e:
-    name: Pipeline
+    name: npm run e2e
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
