@@ -43,7 +43,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: npm run build:affected
+      - run: npm run build:affected -- --base=remotes/origin/${{github.event.pull_request.base.ref}}
   test:
     name: npm run test:affected
     runs-on: ubuntu-latest
@@ -60,7 +60,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: npm run test:affected
+      - run: npm run test:affected -- --base=remotes/origin/${{github.event.pull_request.base.ref}}
   lint:
     name: npm run lint:affected
     runs-on: ubuntu-latest
@@ -77,7 +77,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: npm run lint:affected
+      - run: npm run lint:affected -- --base=remotes/origin/${{github.event.pull_request.base.ref}}
   e2e:
     name: npm run e2e:affected
     runs-on: ubuntu-latest
@@ -95,4 +95,4 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - run: npm --prefix node_modules/cypress run postinstall
-      - run: npm run e2e:affected
+      - run: npm run e2e:affected -- --base=remotes/origin/${{github.event.pull_request.base.ref}}
