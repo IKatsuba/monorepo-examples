@@ -7,7 +7,7 @@
     "build": "nx run-many --target build --all --configuration production",
     "test": "nx run-many --target test --all",
     "lint": "nx run-many --target lint --all",
-    "e2e": "nx run-many --target e2e --all"
+    "e2e": "nx run-many --target e2e --all --configuration production"
   },
   "private": true,
   "dependencies": {
